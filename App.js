@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
-import { View } from "react-native";
-import HomeScreen from "./src/screens/HomeScreen";
-import MenuScreen from "./src/screens/MenuScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./src/screens/HomeScreen";
+import MenuScreen from "./src/screens/MenuScreen";
+import MealScreen from "./src/screens/MealScreen";
+import config from "./src/config";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ export default function App() {
       >
         <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="menu" component={MenuScreen} />
+        <Stack.Screen name="meal" component={MealScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -24,7 +26,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1e81b0",
+    backgroundColor: config.colors.main,
     alignItems: "center",
     justifyContent: "center",
   },

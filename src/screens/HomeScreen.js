@@ -4,7 +4,7 @@ import { List } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import config from "../config";
 
-export default function App() {
+const HomeScreen = () => {
   const dimensions = useWindowDimensions();
   const navigation = useNavigation();
   return (
@@ -23,6 +23,7 @@ export default function App() {
                 navigation.navigate("menu", {
                   kitchenId: kitchen.kitchenId,
                   customerId: kitchen.customerId,
+                  lang: kitchen.lang,
                 })
               }
             />
@@ -31,7 +32,7 @@ export default function App() {
       ))}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -40,3 +41,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export default HomeScreen;

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Card, Text, List } from "react-native-paper";
 import Header from "../components/Header";
+import MealCard from "../components/MealCard";
 import config from "../config";
 
 const MenuScreen = ({ navigation, route }) => {
@@ -12,7 +13,11 @@ const MenuScreen = ({ navigation, route }) => {
   const [menu, setMenu] = useState();
 
   useEffect(() => {
-    fetch(`${url}${route.params.customerId}/${route.params.kitchenId}`)
+    fetch(
+      `${url}${route.params.customerId}/${route.params.kitchenId}?lang=${
+        route.params.lang === "fi" ? "fi" : "en"
+      }`
+    )
       .then((response) => response.json())
       .then((data) => {
         setResponse(data[0]);
@@ -37,24 +42,7 @@ const MenuScreen = ({ navigation, route }) => {
           )}
         </View>
         {menu?.mealoptions.map((meal) => (
-          <Card style={styles.card}>
-            <Card.Title title={meal.name} titleStyle={{ color: "#1e81b0" }} />
-            <Card.Content>
-              <List.Section>
-                {meal.menuItems.map((item) => (
-                  <List.Item
-                    title={item.name}
-                    description={item.diets}
-                    left={() => (
-                      <List.Icon
-                        icon={item.orderNumber === 1 ? "food" : "food-variant"}
-                      />
-                    )}
-                  />
-                ))}
-              </List.Section>
-            </Card.Content>
-          </Card>
+          <MealCard meal={meal} />
         ))}
       </ScrollView>
     </View>
@@ -74,10 +62,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     marginTop: 10,
-  },
-  card: {
-    marginTop: 20,
-    marginHorizontal: 15,
   },
 });
 

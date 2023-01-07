@@ -2,6 +2,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StyleSheet, Text, View } from "react-native";
 import { List, IconButton } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import config from "../config";
 
 const Header = (props) => {
   const insets = useSafeAreaInsets();
@@ -17,7 +18,14 @@ const Header = (props) => {
           onPress={() => navigation.goBack()}
         />
       )}
-      <Text style={styles.title}>{props.title}</Text>
+      <Text
+        style={[
+          styles.title,
+          props.back ? undefined : { marginBottom: 15, marginLeft: 15 },
+        ]}
+      >
+        {props.title}
+      </Text>
     </View>
   );
 };
@@ -25,7 +33,7 @@ const Header = (props) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    backgroundColor: "#1e81b0",
+    backgroundColor: config.colors.main,
     flexDirection: "row",
     alignContent: "center",
     alignItems: "center",

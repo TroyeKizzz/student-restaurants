@@ -7,9 +7,39 @@ export default {
     },
     {
       campus: "TAU",
-      description: "Restaurants near Tampere University main campus",
+      description: "Restaurants on Tampere University main campus",
       kitchens: [
         { name: "Yliopiston Ravintola", customerId: 93077, kitchenId: 13 },
+        { name: "Frenckell", customerId: 93077, kitchenId: 33 },
+      ],
+    },
+    {
+      campus: "TAYS",
+      description: "Restaurants at Tampere University Hospital",
+      kitchens: [
+        {
+          name: "Pikante Finn-Medi",
+          customerId: 96887,
+          kitchenId: 1,
+          lang: "fi",
+        },
+        {
+          name: "Pikante Misteli",
+          customerId: 96887,
+          kitchenId: 4,
+          lang: "fi",
+        },
+      ],
+    },
+    {
+      campus: "TTY",
+      description: "Restaurants near Hervanta Campus",
+      kitchens: [
+        {
+          name: "Newton",
+          customerId: 93077,
+          kitchenId: 6,
+        },
       ],
     },
   ],
@@ -22,4 +52,7 @@ export default {
     "Saturday",
     "Sunday",
   ],
+  colors: {
+    main: "#1e81b0",
+  },
 };
