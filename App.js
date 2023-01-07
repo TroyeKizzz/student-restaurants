@@ -5,6 +5,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import MenuScreen from "./src/screens/MenuScreen";
 import MealScreen from "./src/screens/MealScreen";
 import config from "./src/config";
+import ClosestRestaurantsScreen from "./src/screens/ClosestRestaurantsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="home" component={HomeScreen} />
         <Stack.Screen name="menu" component={MenuScreen} />
         <Stack.Screen name="meal" component={MealScreen} />
+        <Stack.Screen name="closest" component={ClosestRestaurantsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

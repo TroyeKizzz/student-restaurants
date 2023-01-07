@@ -15,7 +15,7 @@ const MealScreen = ({ navigation, route }) => {
     <View style={[styles.container]}>
       <Header title={meal?.name} back />
       {meal?.menuItems.map((item) => (
-        <IngredientsCard meal={item} />
+        <IngredientsCard meal={item} key={item.orderNumber} />
       ))}
     </View>
   );

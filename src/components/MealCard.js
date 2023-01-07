@@ -18,6 +18,7 @@ const MealCard = (props) => {
             <List.Item
               title={item.name}
               description={item.diets}
+              key={item.orderNumber}
               left={() => (
                 <List.Icon
                   icon={item.orderNumber === 1 ? "food" : "food-variant"}

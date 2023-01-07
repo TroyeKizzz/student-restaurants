@@ -14,8 +14,8 @@ const IngredientsCard = (props) => {
         <Text style={styles.diets}>{props.meal.diets}</Text>
         <Text>
           {props.meal.ingredients
-            .replace("<strong>", "")
-            .replace("</strong>", "")}
+            .replaceAll("<strong>", "")
+            .replaceAll("</strong>", "")}
         </Text>
       </Card.Content>
     </Card>

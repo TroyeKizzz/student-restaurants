@@ -42,7 +42,7 @@ const MenuScreen = ({ navigation, route }) => {
           )}
         </View>
         {menu?.mealoptions.map((meal) => (
-          <MealCard meal={meal} />
+          <MealCard meal={meal} key={meal.id} />
         ))}
       </ScrollView>
     </View>
